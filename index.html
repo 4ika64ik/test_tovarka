@@ -1,0 +1,918 @@
+<!DOCTYPE html><html lang="ru-RU"><head>
+   
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=480">
+    <meta name="description" content="">
+    <meta property="og:image" content="images/1.jpeg">
+    <meta name="keywords" content="ХІТ ПРОДАЖ">
+    <meta property="og:type" content="website">
+    <title>Великий розпродаж</title>
+    <link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/slick.css">
+<link rel="stylesheet" href="css/slick-theme.css">
+<link rel="stylesheet" href="css/styles.css">
+  
+<style>
+    #fast-delivery-widget {
+        position: fixed;
+        bottom: 65px;
+        left: 10px;
+        z-index: 600;
+        padding: 10px 30px 10px 70px;
+        border-radius: 5px;
+         -webkit-box-shadow: 0 0 16px 0 rgba(0,0,0,.15);
+        box-shadow: 0 0 16px 0 rgba(0,0,0,.15);
+    }
+    #fast-delivery-widget .fast-delivery-widget__close {
+        display: block;
+        width: 11px;
+        height: 11px;
+        position: absolute;
+        top:10px;
+        right: 10px;
+        cursor: pointer;
+    }
+   
+    #fast-delivery-widget .fast-delivery-widget__close:before {
+        left: 5px;
+        -moz-transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+        -o-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+    }
+    #fast-delivery-widget .fast-delivery-widget__close:after {
+        left: 5px;
+        -moz-transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        -o-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+    #fast-delivery-widget.fast-delivery-widget_light .fast-delivery-widget__close:before,
+    #fast-delivery-widget.fast-delivery-widget_light .fast-delivery-widget__close:after {
+        background: #b5b5b5;
+    }
+    #fast-delivery-widget.fast-delivery-widget_green .fast-delivery-widget__close:before,
+    #fast-delivery-widget.fast-delivery-widget_green .fast-delivery-widget__close:after {
+        background: #fff;
+    }
+
+    #fast-delivery-widget .fast-delivery-widget__title {
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.5em;
+        letter-spacing: .2px;
+    }
+    #fast-delivery-widget .fast-delivery-widget__info {
+        line-height: 1.5em;
+        font-size: 14px;
+    }
+
+    #fast-delivery-widget.fast-delivery-widget_light {
+        color: #333;
+        background: #fff url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAYAAACoPemuAAAFFklEQVRYhcXYaYydUxgH8N+t0dYyU0qLoqViryX2ZVS1tEVryRBrLJUYiYgPEiFEgk8IQiQm9lL70qIttaczidoaS60tsS+lWrdMtarjw3Pe3neue8edMcM/OXnvPec95/zfZzvPcwrNrfV6iH7YHielthQPYw4+w+paFmlpLFbsr+sBoYEYgyYcj01yYwdjMZ7FLLTh2x7s0S1imyYyJyYCA1P/EjyJ9XEUhuKM1N7GXMzAK+joLWL9MBJn4hRslxv7FPfiMXyCdbAtjhWq3R17pnZOIvkkHsVX+LOrjQtVbKwe+ycyTRiU+tsxPxF6BL9UWXcARieCY8o+qIinMR3zWhqL39RCbBgm4ARMFBKD74VRP5aef1QhVAnDMV6ouRFDcmPvYDZeQmtLY3FlObFdcTqOxm65iR/hfjyFd7tBZisckjb+INtLqHWc0MIBufeXC1XPwvSWxuInhebW+qtwPganl1YIQ50mpLOkRjL9sQvOThsPEyFkBm4VJrAmvduQSB6HI7FTbp0luKvQ3Fq/FBvlBubiYrxWI6EBGIspQuLrpf7VSs71O2Zialo/C15DE7mr0+8MvxSaW+t/KOuEn/C88KDn8FsXxCYJVRfS/w6h/qnYW0hwx9z7LwrDHybseK/cWPYxiwvNrfWLhUHeINR4rpKBrsZbeAgPiOBZjgPS2La5vvlpzn1YNxG4DCOqfNwbuAtb4Ar82C83+Bouxz64VBh+nQgbN+J1XIs90mYZ5glvuzCtsSxJ4VoswJVCcoN0xspEZizGtjQWW/BhNpiX2BTcnZvYIPR/kvCwLK6swONCXfMSkTwmJVI7V5DMl+k5HO9jVP6sPK+t4exEtpPEylEUgXRSIngLvhbGfbqIP9OFpLYRnnWhOIqGlK21BtdhctqYiJH9q21ey1nZIQLgS7gZxwiD3lVE9TG4IK2Vt6FFqU0Ux89N+CbN/0d0JbFKWIjrhWpPFp7bLo6cEUKtc3CWiFNXp3kFJVOoKXHoLrEMWe41Prf5r0JVE0Wo+E0ppmXk8s8+IZbHF+nZLkJLHpVItHcxtha9QSyTSj8ldZVjDVYJle+X+rpUaU8y2HJ0VPmdR0GEot2V4tmvusjJeoNYV8jWX1c4DJEktuF2/yOx74SjbCw8eBZeVkMK1dfE3sPhIgNZIPKumtDXxNaIA73b6A2v7BNUIzYSO/yXRMpRidhuaMWruAeH6hzB+xJrg26eWFahdKQ2WNSTr4i8/VSdq+6+wIpKxLJiZIE4765RcuvxIv+6Q41nXQ+xWfajTiknugyjRHXUhktEqjJOZAvjRPLYqzivraFBHP6TRTYLA+pwpyjhN0ezSPTm4jaRDE5LbZQImDXfP3SBDUU+15TayNzYMjxQh4vwYCI0XlQ0E1KbL1Q4U6j432KUcKbjcZiSKa0SBe8cPNHSWHw7C7BvpjZSFKBNaeJeqV0gVckik+2O1IYqXRGMxpa5sYXiymqOuCJYWwBUu1QZjINEbj9ZXDERlyivizDyhChkTxVS/Sl92PIkiYPSB07QuTBpxwviHqS1pbH4eSUC1Y6kn4X6nhFl/5S0ydY4IrX3RIGSeXOHCMr7pQ/aV6nMWylKsxmiiF7oHy5mqkmsEoaJUq4JByrZxx+JwCoRh/L148fCw2cIKf1evmhvXHV+KwrfO4XEjhNGvEEa75/acmE3sxOpRd3Yo0fEMhRFwfuUqBVPE1Isisu82eKG8W/S6Q7+AhQaQsvQfI6FAAAAAElFTkSuQmCC) no-repeat  15px center;
+    }
+
+    #fast-delivery-widget.fast-delivery-widget_green {
+        background: #67c30d url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAYAAACoPemuAAAExUlEQVRYhcWYe4hXRRTHP7s+1lLX0rSyl1iKlZqR9KA3pVhtkEllapZQUQQVPdA/pCh7kGFRGASp2UusoPQPzcpealiBJiZWupmWJK6K66rrez/9MXPdu3fvPn4/3PrCcOfO3JnznXPOzD1nSlSKRCnQD7gjlp3Ah8DnwAbgcLETA5QUQawTcA0wChgJ9Mj0VwGLgAXAMuCftiZ2UiRzG3B5JAiwA5gPHA/cCJSnxqwClgDzgG+B1mtBba6UqueoU9RKG6JSfUo9T22vlqkD1InqSvVw6ts96jL1SbWP2q4FuU0S66per85Uq1MC9qpL1fvUbs1MXKYOU2fkLGiX+r46Sj2ttcR6qxPUBeqR1GRb1NlqhdqhpdVmypnqveonalWG5Cr1haiEsjxi56svqqszA39VJ6uDCyRzunqnwcxJW4l6ofqEujwjp0ZdYnCD/gmxZ9UdqY9q1YXqGLVHAWQ6qkPU19TNal2cd6Y61OCvybfl6lXqK3HxaWxXp6LuzHR8p15SAKEy9Qb147ioBIdS9X2xvyKSSsb2Uu9Xt2Y4VJPTqLpNnaOOVDu3QKwiaidBnfqewW8mqr9l5l6sPqQ+r67I9CWL2Yr1DjlNfc6GDnpI/UF9NK4uj9il6oaMgBWGo+EU9QzDLt6Yo4AEP6kPqM/E96o0sdut30WTbGz7jepU9QIb78ze6sNxEWnX2K7OUt+0scvsN/jftWqXOM/oPGITMsLK1fGGo6MmNWGtwVQj1BPMN+3aJjSzKRbVNTljJyTESpv5KdQA7wIVwC3AdGAzcBwwDlgIfAo8AvQBBsT6eKBnZq464GXgZmBWbCsFOjb3S2pKY3mln/p4XG0alTb2ofXqZ7F+0PpTfnJsW2s4YgrWWB7WA9OAK4HRwJdALXA2cBZQTQh77gGGAFPiuBKga6y3b42gQoklSGKv4SnhewimGgG8A+wlmD1BSebZJsTS2BSftcCKTF8eidpm+o7iWBBLtFJKvbmyqAMOEkx+cWxr1qStsncLsIl6GiXA28BgoFts2wMcaUtizSGZvwNhwwD8TQi53+J/JLaFsFFOJOzgBcA3wOqWBrY1sV+A64EyYA2wu7UD25pYHbCymIHHYle2CZoi1hfo/18SySKP2CBgKbAcmA1cTcMTvC1x9NBNEzsQn8bSHbibkKjOA8bQOOs+1tiXR6x7fK4h/O9eon5bDwc+AGbQyn9dkTj5aM36hHaLIdK8IhWGnKqOM8Tpql8Z0rC8UGWb2rMVoVO2lKtj1bmpEGwXhlg/nW3XqovUW9VOqQkGmp/OFUOsiyETm6r+0TCMc6f6RvLhUPV1G2c0K9THjEloE6UQYgMNGdJiG2b6B9QfDTnuEG18RdA3Dvw6Q/BPdbp6nYWbspfBHeYYEuE01kWF3GTDfLPJS5XuhqRiruEiJUG1+oUhS0/MPCZFrGtsKzX46qs2Tkz2qvPVuww3P7kcWvKFduqgKOCvjIDVhix6UnyvUi9SH1S/N8T5CfarP6tPG+4zWryYKeTirjfhSnMUcBn1R80hQlhzkHAOdUuN+Z0Q4swDFgP7WyusmKvOcmAYIaUbCXTO9O8mXHUujKQqCxVQLLEEHYBzgbEELdYAH0VC6yhAO3n4FwMIGWoKRfvWAAAAAElFTkSuQmCC) no-repeat 15px center;
+        color:#fff;
+    }    
+</style>
+
+
+
+<style>
+    #viewing {
+        display: block;
+        position: fixed;
+        bottom: 2%;
+        left: 2%;
+        z-index: 2;
+        padding: 10px 30px 10px 20px;
+        color: crimson;
+        /* -webkit-box-shadow: 0px 0px 15px hsl(0, 0%, 17%, 0.2);
+        box-shadow: 0px 0px 15px hsl(0, 0%, 17%, 0.2); */
+        border-radius: 7px;
+        margin: 0;
+        border: 0;
+        outline: 0;
+        font-size: 100%;
+        font-weight: 700;
+        
+        box-sizing: border-box;
+        -webkit-text-size-adjust: 100%;
+        -webkit-font-smoothing: subpixel-antialiased;
+        transition: 1.5s ease-in-out;
+        transition-property: visibility, transform;
+        transform: translate3d(-150%, 0, 0);
+        visibility: hidden;
+    }
+
+    #viewing.is-visible {
+        transform: translate3d(0, 0, 0);
+        visibility: visible;
+    }
+ 
+    #viewing .close {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        display: block;
+        width: 1em;
+        height: 1em;
+        color: hsl(0, 0%, 17%);
+        font-size: 13px;
+        cursor: pointer;
+    }
+
+    #viewing .close::before,
+    #viewing .close::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0.5em;
+        height: 100%;
+        width: calc(1em / 12);
+        margin-left: calc(1em / -24);
+        background-color: currentColor;
+    }
+
+    #viewing .close::before {
+        transform: rotate(45deg);
+    }
+
+    #viewing .close::after {
+        transform: rotate(-45deg);
+    }
+
+    #viewing.light {
+        color: hsl(0, 0%, 17%);
+        background-color: hsl(0, 0%, 97%);
+    }
+
+    #viewing .layout {
+        display: flex;
+        align-items: center;
+    }
+
+    #viewing .body {
+        font-size: 14px;
+        line-height: 1.2;
+    }
+
+    #viewing span {
+        font-weight: 700;
+        line-height: 1.4;
+        letter-spacing: .2px;
+        text-transform: uppercase;
+    }
+    #viewing p {
+        font-size: 14px;
+    }
+</style>
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        const viewing = document.getElementById('viewing');
+        const close = viewing.querySelector('.close');
+        const number = viewing.querySelector('[data-number]')
+
+        close.addEventListener('click', function () {
+            viewing.classList.remove('is-visible');
+        });
+
+        setTimeout(function () {
+            viewing.classList.add('is-visible');
+
+            number.innerHTML = randomInteger(100, 120);
+            setInterval(function () {
+                number.innerHTML = randomInteger(100, 120);
+            }, 45000);
+        }, 10000);
+
+        function randomInteger(min, max) {
+            return Math.floor(min + Math.random() * (max + 1 - min))
+        }
+    });
+</script>
+
+		
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1363420307659177');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1363420307659177&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+         
+</head>
+
+<body>
+    <script>
+        var seconds=0;
+        function timeDisp() {
+          seconds ++;
+          var obj=document.getElementById("total");
+       
+          obj.value=seconds;
+       
+        }
+        setInterval(timeDisp,1000);
+    </script>
+    <div id="viewing" class="light">
+        <div class="close"></div>
+        <div class="layout">
+            <div class="body">
+                <p>
+                    Цей товар переглядають: <span data-number="">148</span>
+                    осiб. </p>
+            </div>
+        </div>
+    </div>
+<div class="main_wrapper">
+
+    <header class="offer_section offer3">
+        <h1 class="main_title">Хіт продаж 2024</h1>
+        <div class="info_block">
+            <p class="subtitle">Сукня з накидкою</p>
+            <div class="discount"><b>40% знижка</b></div>
+            <img src="images/5-3.jpeg" alt="">
+        </div>
+        <div class="price_block">
+            <div class="price_item old">
+                <div class="text">Звичайна ціна:</div>
+                <div class="value">1970грн</div>
+            </div>
+            <div class="price_item new">
+                <div class="text">Ціна сьогодні:</div>
+                <div class="value">1299грн</div>
+            </div>
+        </div>
+        <div class="benefits_block clearfix">
+            <div class="benefit_item">
+                <img src="images/2-4.jpeg" alt="">
+                <p>СТИЛЬНА</p>
+            </div>
+            <div class="benefit_item">
+                <img src="images/3-4.jpeg" alt="">
+                <p style="text-transform: uppercase">ЯСКРАВА</p>
+            </div>
+            <div class="benefit_item">
+                <img src="images/1-4.jpeg" alt="">
+                <p>З ЯКІСНОЇ ТКАНИНИ</p>
+            </div>
+        </div>   
+
+        <div class="products_count">Знижка діє<br> <b style="background-color: rgb(226, 172, 36);color: #000;"> з <script type="text/javascript">
+            d = new Date(); p = new Date(d.getTime() -  5*86400000);
+            monthA =  '01,02,03,04,05,06,07,08,09,10,11,12'.split(',');
+            var w = p.getDate();
+            document.write(p.getDate() + '.' + monthA[p.getMonth()] +'.'+ p.getFullYear());
+        </script> по <script type="text/javascript">
+            d = new Date(); p = new Date(d.getTime() +  1*86400000);
+            monthA =  '01,02,03,04,05,06,07,08,09,10,11,12'.split(',');
+            var w = p.getDate();
+            document.write(p.getDate() + '.' + monthA[p.getMonth()] +'.'+ p.getFullYear());
+        </script> </b><br> на весь товар інтернет-магазину по всій території України</div>
+
+        <a href="#cat" class="button">ОБРАТИ КОЛІР</a>
+        <div class="products_count">Залишилось <b>20</b>&nbsp;одиниць по акції</div>
+    </header>
+
+
+    <section class="description_section">
+        <!-- <h2 class="title"><span>Хіт сезону</span></h2> -->
+            
+
+        <ul class="characteristics__list">
+           
+            <p><b> </b></p>
+            <li><b>Розміри:</b> 50-52, 54-56, 58-60, 62-64, 66-68</li>
+            <li><b>Тканина: </b>шифон </li>
+            
+           
+            <li><b>Колір: </b>фіолет, помаранч, жовтий, червоний </li>
+        </ul>
+    </section>
+
+    <section class="cat" id="cat">
+
+        <h2 class="title" style="margin-left: 30px"><span>ОБЕРІТЬ </span>СВІЙ КОЛІР</h2>
+        
+       
+        
+
+        <div class="catitem">
+            <div class="slider-dress">
+                <img src="images/1.jpeg" alt="">
+                <img src="images/1-2.jpeg" alt="">
+                <img src="images/1-3.jpeg" alt="">
+                <img src="images/1-4.jpeg" alt="">
+                <img src="images/1-5.jpeg" alt="">
+            </div>
+            <div class="clearfix">
+                <h3>Фіолет</h3>
+                <div class="catprice clearfix">
+                    <div class="cp-left">
+                        <span>-40%</span>
+                        <p>1970грн</p>
+                    </div>
+                    <div class="cp-right" id="product-card">
+                        <span>Ціна сьогодні:</span>
+                        <p>1299грн</p>
+                    </div>
+                </div>
+            </div>
+            <a href="#order_form" class="button">Оформити замовлення</a>
+        </div>
+       
+
+       
+        <div class="catitem">
+            <div class="slider-dress">
+                <img src="images/2.jpeg" alt="">
+                <img src="images/2-2.jpeg" alt="">
+                <img src="images/2-3.jpeg" alt="">
+                <img src="images/2-4.jpeg" alt="">
+            </div>
+            <div class="clearfix">
+                <h3>Помаранч</h3>
+                <div class="catprice clearfix">
+                    <div class="cp-left">
+                        <span>-40%</span>
+                        <p>1970грн</p>
+                    </div>
+                    <div class="cp-right">
+                        <span>Ціна сьогодні:</span>
+                        <p>1299грн</p>
+                    </div>
+                </div>
+            </div>
+            <a href="#order_form" class="button">Оформити замовлення</a>
+        </div>
+
+        <div class="catitem">
+            <div class="slider-dress">
+                <img src="images/3.jpeg" alt="">
+                <img src="images/3-2.jpeg" alt="">
+                <img src="images/3-3.jpeg" alt="">
+                <img src="images/3-4.jpeg" alt="">
+            </div>
+            <div class="clearfix">
+                <h3>Жовтий</h3>
+                <div class="catprice clearfix">
+                    <div class="cp-left">
+                        <span>-40%</span>
+                        <p>1970грн</p>
+                    </div>
+                    <div class="cp-right">
+                        <span>Ціна сьогодні:</span>
+                        <p>1299грн</p>
+                    </div>
+                </div>
+            </div>
+            <a href="#order_form" class="button">Оформити замовлення</a>
+        </div>
+
+        <!--<div class="catitem">-->
+        <!--    <div class="slider-dress">-->
+        <!--        <img src="img\1\4.jpeg" alt="">-->
+        <!--        <img src="img\1\4-2.jpeg" alt="">-->
+        <!--        <img src="img\1\4-3.jpeg" alt="">-->
+        <!--        <img src="img\1\4-4.jpeg" alt="">-->
+        <!--    </div>-->
+        <!--    <div class="clearfix">-->
+        <!--        <h3>Бутилка</h3>-->
+        <!--        <div class="catprice clearfix">-->
+        <!--            <div class="cp-left">-->
+        <!--                <span>-40%</span>-->
+        <!--                <p>1970грн</p>-->
+        <!--            </div>-->
+        <!--            <div class="cp-right">-->
+        <!--                <span>Ціна сьогодні:</span>-->
+        <!--                <p>1299грн</p>-->
+        <!--            </div>-->
+        <!--        </div>-->
+        <!--    </div>-->
+        <!--    <a href="#order_form" class="button">Оформити замовлення</a>-->
+        <!--</div>-->
+        
+         <div class="catitem">
+            <div class="slider-dress">
+                <img src="images/5.jpeg" alt="">
+                <img src="images/5-2.jpeg" alt="">
+                <img src="images/5-3.jpeg" alt="">
+                <img src="images/5-4.jpeg" alt="">
+            </div>
+            <div class="clearfix">
+                <h3>Червоний</h3>
+                <div class="catprice clearfix">
+                    <div class="cp-left">
+                        <span>-40%</span>
+                        <p>1970грн</p>
+                    </div>
+                    <div class="cp-right">
+                        <span>Ціна сьогодні:</span>
+                        <p>1299грн</p>
+                    </div>
+                </div>
+            </div>
+            <a href="#order_form" class="button">Оформити замовлення</a>
+        </div>
+        
+
+    </section>
+    <section class="description_section" style="background-color:#fdfdfd ; color: #1f1f1f;">
+ 
+        <h2 class="title"><span style="color: #08397a;">Розмірна </span> сітка</h2>
+        <br>
+        <!-- <img src="img/1/razm.jpg" alt=""> -->
+        <p>  <b>*усі параметри вказані у см</b></p><table style="width: 90%;margin-left: 5%;">
+            <tbody>
+    
+    <!-- <p style="font-weight: 700;"> Тканина має середню розтяжність. </p> -->
+    
+               
+    
+                <tr style="background-color: #348dd6; color: #fcfcfc;">
+                   
+                   
+                    <th class="bold">Розміри &gt;&gt;&gt;</th>
+                    <!-- <th class="bold">42-44</th> -->
+                    <!-- <th class="bold">46-48</th> -->
+                    <th class="bold">50-52</th>
+                    <th class="bold">54-56</th>
+                    <th class="bold">58-60</th>
+                    <th class="bold">62-64</th>
+                    <th class="bold">66-68</th>
+                    </tr>
+    
+    
+           
+             <tr><th class="bold">Сукня</th>
+           
+           
+           
+            </tr>
+            <tr>
+                <td>Об’єм грудей
+                </td>
+               
+               
+                <th>110</th>
+                <th>118</th>
+                <th>126</th>
+                <th>134</th>
+               
+                <th>142</th>
+               
+                
+                
+                </tr>
+               
+                <tr>
+                    <td></td>
+                   
+                    
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+               
+                    
+                    
+                    
+                    </tr>
+               
+                    <tr>
+                        <td>Довжина
+                       
+                       
+                        </td><th>106</th>
+                        <th>108</th>
+                        <th>109</th>
+                        <th>111</th>
+                        <th>112</th>
+               
+                       
+                        
+                        
+                        </tr>
+                    
+        
+                           
+            </tbody></table>
+        <br>
+        <center>*залиште заявку й ми підберемо для вас розмір!</center>
+        
+        <!--</ul>-->
+        
+        </section>
+
+        <section class="reviews3_section">
+            <h2 class="title"><span>Відгуки</span> покупців</h2>
+            <!-- <div class="reviews_list"> -->
+            <!-- <div class="bxslider slider-dress"> -->
+                <div class="review_item">
+                
+                    <div class="review_item">
+                        <div class="author_block clearfix">
+                            <img src="images/ava.png" alt="">
+                            <div class="author_info">
+                                <div class="name">Татьяна</div>
+                                <div class="text">30 років</div>
+                            </div>
+                            <div class="info">
+                                <div class="rating"></div>
+                                <div class="date dattt">вчора</div>
+                            </div>
+                        </div>
+                        <p>Дякую за швидку відправку. Та і оплата після осмотру , а не наперед, теж дуже гарно. Якісна сукня,  те що треба. Буду вас рекомендувати!</p>
+                       
+            
+                    </div>
+                    <div class="review_item">
+                        <div class="author_block clearfix">
+                            <img src="images/ava.png" alt="">
+                            <div class="author_info">
+                                <div class="name">Вікторія</div>
+                                <div class="text">39 років</div>
+                            </div>
+                            <div class="info">
+                                <div class="rating"></div>
+                                <div class="date dattt">2 дні тому</div>
+                            </div>
+                        </div>
+                        <p>Замовляла у вас сукню жовтого коліру. Розмір підійшов, я задоволена. Тканина гарної якості. Щиро дякую за швидку відправку.</p>
+            
+                    </div>
+                    <div class="review_item">
+                        <div class="author_block clearfix">
+                            <img src="images/ava.png" alt="">
+                            <div class="author_info">
+                                <div class="name">Мария</div>
+                                <div class="text">47 років</div>
+                            </div>
+                            <div class="info">
+                                <div class="rating"></div>
+                                <div class="date dattt">3 дні тому</div>
+                            </div>
+                        </div>
+                       
+                        <p> Сукню отримала, добре що оплата після перевірки а не наперед. Сукня як на мене шита. Якісна, дуже приємна до тіла. Буду вас рекомендувати!</p>
+                    </div>
+            <!-- </div> -->
+            <!-- </div> -->
+        </div></section>
+    
+
+    <div class="tlt">
+        <h2 class="title"><span>Як зробити</span><br> замовлення?</h2>
+    </div>
+    <div class="order_steps1">
+        <div class="step_item">
+            <div class="step_wrapper">
+                <img src="images/order_steps__step1_icon.png" alt="">
+                <h4>Заявка</h4>
+                <p>Заповніть форму на сайті</p>
+            </div>
+        </div>
+        <div class="step_item">
+            <div class="step_wrapper">
+                <img src="images/order_steps__step2_icon.png" alt="">
+                <h4>Дзвінок</h4>
+                <p>Наш менеджер передзвонить для уточнення деталей</p>
+            </div>
+        </div>
+        <div class="step_item">
+            <div class="step_wrapper">
+                <img src="images/order_steps__step3_icon.png" alt="">
+                <h4>Відправка</h4>
+                <p>Доставляємо ваш товар протягом<br>2-4 днів</p>
+            </div>
+        </div>
+        <div class="step_item">
+            <div class="step_wrapper">
+                <img src="images/order_steps__step4_icon.png" alt="">
+                <h4>Отримання</h4>
+                <p>Оплачуйте при отриманні на новій пошті</p>
+            </div>
+        </div>
+    </div>
+
+
+    <section class="offer_section offer3 order">
+        <h1 class="main_title">Хіт продаж 2024</h1>
+        <div class="info_block">
+            <p class="subtitle">Сукня з накидкою</p>
+            <div class="discount"><b>40% знижка</b></div>
+            <img src="images/5.jpeg" alt="">
+        </div>
+        <div class="price_block">
+            <div class="price_item old">
+                <div class="text">Звичайна ціна:</div>
+                <div class="value">1970грн</div>
+            </div>
+            <div class="price_item new">
+                <div class="text">Ціна сьогодні:</div>
+                <div class="value">1299грн</div>
+            </div>
+        </div>
+        <div class="benefits_block clearfix">
+            <div class="benefit_item">
+                <img src="images/2-3.jpeg" alt="">
+                <p>СТИЛЬНА</p>
+            </div>
+            <div class="benefit_item">
+                <img src="images/3-3.jpeg" alt="">
+                <p style="text-transform: uppercase">СУЧАСНА </p>
+            </div>
+            <div class="benefit_item">
+                <img src="images/1-3.jpeg" alt="">
+                <p>НА КОЖЕН ДЕНЬ</p>
+            </div>
+        </div>
+
+        <div class="products_count">Знижка діє<br> <b style="background-color: rgb(226, 172, 36);color: #000;"> з <script type="text/javascript">
+            d = new Date(); p = new Date(d.getTime() -  5*86400000);
+            monthA =  '01,02,03,04,05,06,07,08,09,10,11,12'.split(',');
+            var w = p.getDate();
+            document.write(p.getDate() + '.' + monthA[p.getMonth()] +'.'+ p.getFullYear());
+        </script> по <script type="text/javascript">
+            d = new Date(); p = new Date(d.getTime() +  1*86400000);
+            monthA =  '01,02,03,04,05,06,07,08,09,10,11,12'.split(',');
+            var w = p.getDate();
+            document.write(p.getDate() + '.' + monthA[p.getMonth()] +'.'+ p.getFullYear());
+        </script> </b><br> на весь товар інтернет-магазину по всій території України</div>
+
+
+        <form id="order_form" class="order_form" action="mail.php" method="post" onsubmit="return validateForm('formId');">
+            <h2 style="text-align: center;font-size: 25px;">Залиште заявку  <br> і ми звяжемось з вами </h2>
+            <br>
+            <select class="field" name="color" required="">
+                
+                <option selected="" disabled="">Оберіть колір</option>
+                <option value="Фіолет">Фіолет</option>
+                <option value="Помаранч">Помаранч</option>
+                <option value="Жовтий">Жовтий</option>
+                <!-- <option value="Чорний">Чорний</option> -->
+               
+                 <!--<option value="Бутилка">Бутилка</option>-->
+               
+                <option value="Червоний">Червоний</option>
+                
+               
+                
+
+            </select>
+
+            <select class="field" name="size" required="">
+                
+                <option selected="" disabled="">Оберіть розмір</option>
+                <!-- <option value="42-44">42-44</option> -->
+                <!-- <option value="46-48">46-48</option> -->
+                <option value="50-52">50-52</option>
+                <option value="54-56">54-56</option>
+                <option value="58-60">58-60</option>
+                <option value="62-64">62-64</option>
+                <option value="66-68">66-68</option>
+                <!-- <option value="56-58">56-58</option> -->
+                <option value="Консультація">Потрібна консультація</option>
+                
+                
+
+
+            </select>
+            <input class="field" type="text" name="name" id="name" placeholder="Введіть ваше прізвище та ім'я" required="" oninput="validateName(this)">
+            <input class="field" type="tel" id="phone" name="phone" placeholder="Введіть ваш телефон" required="">
+            <input type="email" name="email" style="display: none;">
+            <input type="hidden" value="" name="total" id="total">
+            <input type="hidden" name="price" id="hidden-price">
+            <button class="button" id="submit">Оформити замовлення</button>
+           
+        </form>
+
+       
+
+
+        <div class="products_count">Залишилось <b>20</b> одиниць по акції</div>
+    </section>
+
+    <!-- /order 3 -->
+    <style media="screen">.button{position:relative;overflow:hidden}
+
+        .button:after{content:"";position:absolute;top:-50%;right:-50%;bottom:-50%;left:-50%;background:-webkit-gradient(linear,left top,left bottom,from(rgba(229,172,142,0)),color-stop(50%,rgba(255,255,255,.7)),color-stop(50%,rgba(229,172,142,0)));background:linear-gradient(to bottom,rgba(229,172,142,0),rgba(255,255,255,.7) 50%,rgba(229,172,142,0));-webkit-transform:rotateZ(60deg) translate(-5em,7.5em);-ms-transform:rotate(60deg) translate(-5em,7.5em);transform:rotateZ(60deg) translate(-5em,7.5em);opacity:0;filter: alpha(opacity=0);z-index:1;animation:sheens 3s infinite}@keyframes sheens {
+              0%,
+              79% {
+                  opacity: 0;
+                  filter: alpha(opacity=0);
+                  -webkit-transform: rotateZ(60deg) translate(-5em, 7.5em);
+                  transform: rotateZ(60deg) translate(-5em, 7.5em)
+              }
+              80% {
+                  opacity: 1;
+                  filter: alpha(opacity=100);
+                  -webkit-transform: rotateZ(60deg) translate(-5em, 7.5em);
+                  transform: rotateZ(60deg) translate(-5em, 7.5em)
+              }
+              95% {
+                  opacity: 1;
+                  filter: alpha(opacity=100);
+                  -webkit-transform: rotateZ(60deg) translate(1em, -11em);
+                  transform: rotateZ(60deg) translate(1em, -11em)
+              }
+              to {
+                  opacity: 0;
+                  filter: alpha(opacity=0);
+                  -webkit-transform: rotateZ(60deg) translate(1em, -9em);
+                  transform: rotateZ(60deg) translate(1em, -9em)
+              }
+          }</style>
+    <!-- footer -->
+
+    <footer class="footer_section">
+        <p>
+ 65125, м. Одеса</p>ТОВ "Одяг" 
+<br>
+        <a target="_blank" href="politics.html">Політика конфіденційності</a>
+    </footer>
+
+    
+
+
+    
+</div>
+<style>table {
+    border-collapse: inherit
+}</style>
+
+<script type="text/javascript" src="js/jquery-3.6.0.min.js"></script> 
+<script>
+   
+    var priceElement = document.getElementById('product-card').querySelector('p');
+    var form = document.getElementById('order_form');
+    var hiddenPriceField = document.getElementById('hidden-price');
+    var priceText = priceElement.innerText;
+    var priceValue = priceText.replace('грн', ''); 
+    hiddenPriceField.value = priceValue;
+     form.addEventListener('submit', function(event) {
+     });
+</script>
+<script type="text/javascript">
+    function validateForm(formId) {
+
+      var button = document.getElementById("submit");
+      button.disabled = true; // Блокуємо кнопку
+      button.innerHTML = "Зачекайте..."; // Змінюємо текст кнопки
+
+      return true; // Відправити форму
+    }
+  </script>
+<script>
+    function validateName(input) {
+        var name = input.value;
+        var pattern = /^[А-Яа-яЁёІіЇїЄє\s]+$/; 
+
+        if (!pattern.test(name)) {
+            alert("Пожалуйста, используйте только русские и украинские буквы.");
+            input.value = ''; 
+        }
+    }
+</script>
+<script>
+    
+var clientNameInput = document.getElementById('name');
+
+
+clientNameInput.addEventListener('input', function() {
+  var words = this.value.split(' ');
+
+  for (var i = 0; i < words.length; i++) {
+    words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
+  }
+
+  this.value = words.join(' ');
+});
+
+</script>
+
+<script type="text/javascript">
+  const phoneNumberRegex = /^\+38\s?\(0(?:50|63|66|67|68|73|92|93|95|96|97|98|99)\)\s?\d{3}-\d{2}-\d{2}$/;
+
+const phoneNumberInput = document.getElementById('phone');
+
+const submitButton = document.getElementById('submit');
+
+submitButton.addEventListener('click', function(event) {
+  const phoneNumber = phoneNumberInput.value.trim();
+  
+   const modal = document.getElementById('myModal');
+//const spinner = document.getElementById('spinner');
+const message = document.getElementById('message');
+  
+  if (phoneNumberRegex.test(phoneNumber)) {
+  } else {
+    event.preventDefault(); 
+    modal.style.display = 'block';
+var closeBtn = modal.querySelector(".close");
+
+closeBtn.addEventListener("click", function() {
+  modal.style.display = "none";
+});
+  }
+});
+</script>
+    <style>
+    /* Стили для модального окна и спинера */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 50% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+  border-radius: 8px;
+}
+
+
+.message {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+/* Закрыть кнопку модального окна */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+</style>
+
+    <div id="myModal" class="modal">
+  <div class="modal-content">
+     <span class="close">×</span>
+    <div id="message" class="message">Спасибо, заказ принят!</div>
+  </div>
+</div>
+<script src="js/mask_input.js"></script>
+<script src="js/slick.min.js"></script>
+<script src="js/scripts.js"></script>
+
+
+
+<script>
+    
+    function closeWidget() {
+        var widget = document.getElementById("fast-delivery-widget");
+        widget.style.display = "none"; 
+    }
+</script>
+
+<div id="fast-delivery-widget" class="fast-delivery-widget_light">
+    <span class="fast-delivery-widget__title">Швидка доставка <br> Оплата при отриманні</span>
+    <p class="fast-delivery-widget__info">
+         </p>
+    
+    <div class="fast-delivery-widget__close" onclick="closeWidget()">✖</div>
+    </div>
+    
+
+
+
+
+</body></html>
