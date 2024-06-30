@@ -658,7 +658,7 @@ src="https://www.facebook.com/tr?id=1363420307659177&ev=PageView&noscript=1"
         </script> </b><br> на весь товар інтернет-магазину по всій території України</div>
 
 
-        <form id="order_form" class="order_form" action="mails.php" method="post" onsubmit="return validateForm('formId');">
+        <form  class="order_form" action="mails.php" method="post" onsubmit="return validateForm('formId');">
             <h2 style="text-align: center;font-size: 25px;">Залиште заявку  <br> і ми звяжемось з вами </h2>
             <br>
             <select class="field" name="color" required="">
@@ -759,81 +759,8 @@ src="https://www.facebook.com/tr?id=1363420307659177&ev=PageView&noscript=1"
 }</style>
 
 <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script> 
-<script>
+
    
-    var priceElement = document.getElementById('product-card').querySelector('p');
-    var form = document.getElementById('order_form');
-    var hiddenPriceField = document.getElementById('hidden-price');
-    var priceText = priceElement.innerText;
-    var priceValue = priceText.replace('грн', ''); 
-    hiddenPriceField.value = priceValue;
-     form.addEventListener('submit', function(event) {
-     });
-</script>
-<script type="text/javascript">
-    function validateForm(formId) {
-
-      var button = document.getElementById("submit");
-      button.disabled = true; // Блокуємо кнопку
-      button.innerHTML = "Зачекайте..."; // Змінюємо текст кнопки
-
-      return true; // Відправити форму
-    }
-  </script>
-<script>
-    function validateName(input) {
-        var name = input.value;
-        var pattern = /^[А-Яа-яЁёІіЇїЄє\s]+$/; 
-
-        if (!pattern.test(name)) {
-            alert("Пожалуйста, используйте только русские и украинские буквы.");
-            input.value = ''; 
-        }
-    }
-</script>
-<script>
-    
-var clientNameInput = document.getElementById('name');
-
-
-clientNameInput.addEventListener('input', function() {
-  var words = this.value.split(' ');
-
-  for (var i = 0; i < words.length; i++) {
-    words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
-  }
-
-  this.value = words.join(' ');
-});
-
-</script>
-
-<script type="text/javascript">
-  const phoneNumberRegex = /^\+38\s?\(0(?:50|63|66|67|68|73|92|93|95|96|97|98|99)\)\s?\d{3}-\d{2}-\d{2}$/;
-
-const phoneNumberInput = document.getElementById('phone');
-
-const submitButton = document.getElementById('submit');
-
-submitButton.addEventListener('click', function(event) {
-  const phoneNumber = phoneNumberInput.value.trim();
-  
-   const modal = document.getElementById('myModal');
-//const spinner = document.getElementById('spinner');
-const message = document.getElementById('message');
-  
-  if (phoneNumberRegex.test(phoneNumber)) {
-  } else {
-    event.preventDefault(); 
-    modal.style.display = 'block';
-var closeBtn = modal.querySelector(".close");
-
-closeBtn.addEventListener("click", function() {
-  modal.style.display = "none";
-});
-  }
-});
-</script>
     <style>
     /* Стили для модального окна и спинера */
 .modal {
