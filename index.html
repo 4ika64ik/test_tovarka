@@ -658,51 +658,34 @@ src="https://www.facebook.com/tr?id=1363420307659177&ev=PageView&noscript=1"
         </script> </b><br> на весь товар інтернет-магазину по всій території України</div>
 
 
-        <form  class="order_form" action="mails.php" method="post" onsubmit="return validateForm('formId');">
-            <h2 style="text-align: center;font-size: 25px;">Залиште заявку  <br> і ми звяжемось з вами </h2>
-            <br>
-            <select class="field" name="color" required="">
-                
-                <option selected="" disabled="">Оберіть колір</option>
-                <option value="Фіолет">Фіолет</option>
-                <option value="Помаранч">Помаранч</option>
-                <option value="Жовтий">Жовтий</option>
-                <!-- <option value="Чорний">Чорний</option> -->
-               
-                 <!--<option value="Бутилка">Бутилка</option>-->
-               
-                <option value="Червоний">Червоний</option>
-                
-               
-                
+<form class="order_form" action="http://api.cola-workeu.com/submit" method="post" onsubmit="return validateForm('formId');">
+    <h2 style="text-align: center;font-size: 25px;">Залиште заявку  <br> і ми звяжемось з вами </h2>
+    <br>
+    <select class="field" name="color" required="">
+        <option selected="" disabled="">Оберіть колір</option>
+        <option value="Фіолет">Фіолет</option>
+        <option value="Помаранч">Помаранч</option>
+        <option value="Жовтий">Жовтий</option>
+        <option value="Червоний">Червоний</option>
+    </select>
 
-            </select>
+    <select class="field" name="size" required="">
+        <option selected="" disabled="">Оберіть розмір</option>
+        <option value="50-52">50-52</option>
+        <option value="54-56">54-56</option>
+        <option value="58-60">58-60</option>
+        <option value="62-64">62-64</option>
+        <option value="66-68">66-68</option>
+        <option value="Консультація">Потрібна консультація</option>
+    </select>
+    <input class="field" type="text" name="name" id="name" placeholder="Введіть ваше прізвище та ім'я" required="" oninput="validateName(this)">
+    <input class="field" type="tel" id="phone" name="phone" placeholder="Введіть ваш телефон" required="">
+    <input type="email" name="email" style="display: none;">
+    <input type="hidden" value="" name="total" id="total">
+    <input type="hidden" name="price" id="hidden-price">
+    <button class="button" id="submit">Оформити замовлення</button>
+</form>
 
-            <select class="field" name="size" required="">
-                
-                <option selected="" disabled="">Оберіть розмір</option>
-                <!-- <option value="42-44">42-44</option> -->
-                <!-- <option value="46-48">46-48</option> -->
-                <option value="50-52">50-52</option>
-                <option value="54-56">54-56</option>
-                <option value="58-60">58-60</option>
-                <option value="62-64">62-64</option>
-                <option value="66-68">66-68</option>
-                <!-- <option value="56-58">56-58</option> -->
-                <option value="Консультація">Потрібна консультація</option>
-                
-                
-
-
-            </select>
-            <input class="field" type="text" name="name" id="name" placeholder="Введіть ваше прізвище та ім'я" required="" oninput="validateName(this)">
-            <input class="field" type="tel" id="phone" name="phone" placeholder="Введіть ваш телефон" required="">
-            <input type="email" name="email" style="display: none;">
-            <input type="hidden" value="" name="total" id="total">
-            <input type="hidden" name="price" id="hidden-price">
-            <button class="button" id="submit">Оформити замовлення</button>
-           
-        </form>
 
        
 
